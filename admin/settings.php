@@ -114,9 +114,9 @@ if (!empty($fromform) and confirm_sesskey()) {
     //save the hub logo
     if (empty($fromform->keepcurrentimage)) {         
         $file = $hubsettingsform->save_temp_file('hubimage');
-        
+
         if (!empty($file)) {
-            
+
             $userdir = "hub/0/";
 
             //create directory if doesn't exist
@@ -126,9 +126,9 @@ if (!empty($fromform) and confirm_sesskey()) {
             copy($file,  $directory . 'hublogo');
 
             set_config('hublogo', true, 'local_hub');
-            
+
             $updatelogo = true;
-            
+
         } else {
             if (file_exists($CFG->dataroot . '/hub/0/hublogo')) {
                 unlink($CFG->dataroot . '/hub/0/hublogo');
@@ -139,7 +139,7 @@ if (!empty($fromform) and confirm_sesskey()) {
     if (empty($updatelogo) and empty($fromform->keepcurrentimage)) {
         set_config('hublogo', false, 'local_hub');
     }
-    
+
     $hubsettingsform->update_hublogo();
 
     //display confirmation
