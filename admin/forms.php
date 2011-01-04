@@ -369,11 +369,9 @@ class hub_settings_form extends moodleform {
         }
         $hublogo = get_config('local_hub', 'hublogo');
         if (!empty($hublogo)) {
-            
-            
+
             $params = array('filetype' => HUB_HUBSCREENSHOT_FILE_TYPE, 'time' => time());
-            $imageurl = new moodle_url($CFG->wwwroot .
-                            "/local/hub/webservice/download.php", $params);
+            $imageurl = new moodle_url("/local/hub/webservice/download.php", $params);
 
             $hubname = get_config('local_hub', 'name');
             if ($hubname === false) {
