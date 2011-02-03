@@ -1100,7 +1100,20 @@ class local_hub {
             //if creation mode, check that the secret doesn't exist already
             $checkedhub = $this->get_site_by_secret($siteinfo->secret);
             if (!empty($checkedhub)) { //no registration process failed but the secret still exist
-                throw new moodle_exception('sitesecretalreadyexist');
+                //alert existing "secret" site administrator
+                $contactuser = new object;
+                $contactuser->email = $checkedhub->contactemail;
+                $contactuser->firstname = $checkedhub->contactname;
+                $contactuser->lastname = '';
+                $contactuser->maildisplay = true;
+                $emailinfo->existingsite = $checkedhub->name;
+                $emailinfo->hubname = get_config('local_hub', 'name');
+                $emailinfo->adminemail = get_config('local_hub', 'contactemail');
+                email_to_user($contactuser, get_admin(),
+                        get_string('emailtitlesecretalreadyexists', 'local_hub', $emailinfo),
+                        get_string('emailmessagesecretalreadyexists', 'local_hub', $emailinfo));
+
+                throw new moodle_exception('sitesecretalreadyexist', 'local_hub');
             }
         }
 

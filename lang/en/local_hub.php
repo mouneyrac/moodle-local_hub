@@ -121,6 +121,9 @@ $string['edulevelsecondary'] = 'Secondary';
 $string['eduleveltertiary'] = 'Tertiary';
 $string['emailmessage'] = 'Message';
 $string['emailmessage_help'] = 'The message content.';
+$string['emailmessagesecretalreadyexists'] = '{$a->hubname} hub detected a site trying to register with the {$a->existingsite} secret identifier.
+This issue commonly appears when you try to register a backuped site.
+If you previously registered {$a->hubname}, please send us an email at {$a->adminemail} indicating your problem. Thank you.';
 $string['emailmessagesiteadded'] = 'A new site just registered with the hub at {$a->huburl}
     
 Name: {$a->name}
@@ -142,6 +145,7 @@ Admin: {$a->contactname} ({$a->contactemail})
 Language: {$a->language}
 
 To manage registered sites, go to: {$a->managesiteurl}';
+$string['emailtitlesecretalreadyexists'] = 'Another site try to register with {$a->name} identifier.';
 $string['emailtitlesiteadded'] = '{$a} site has been added to the hub';
 $string['emailtitlesitedeleted'] = '{$a->sitename} has been deleted from {$a->hubname} hub';
 $string['emailtitlesiteurlchanged'] = '{$a} site has changed his name or url (please check it).';
@@ -358,6 +362,7 @@ $string['siteregconfcomment'] = 'Your site needs a final confirmation on {$a} (i
 $string['siteregistration'] = 'Site registration';
 $string['siteregistrationupdated'] = 'Site registration updated';
 $string['sitesearch'] = 'Search for sites';
+$string['sitesecretalreadyexist'] = 'The hub could not process the registration because another site is already registered with the same identifier.';
 $string['sitesettings'] = 'Site settings';
 $string['sitesettingsform'] = '"{$a}" settings';
 $string['sitesettingsupdated'] = '{$a} settings have been updated.';
