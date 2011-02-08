@@ -109,8 +109,6 @@ class local_hub_renderer extends plugin_renderer_base {
 
         $optionsyes['freshmoodletoken'] = $freshmoodletoken;
         $optionsyes['freshmoodletokenconf'] = true;
-      //  $optionsyes = array_merge($optionsyes, $freshregistration['newsite']);
-      //  varlog($optionsyes);
 
         $formcontinue = new single_button(new moodle_url("/local/hub/siteregistration.php",
                 $optionsyes), get_string('replaceregistrationbutton', 'local_hub'), 'post');
@@ -136,7 +134,7 @@ class local_hub_renderer extends plugin_renderer_base {
                                  'contactemail' => true,
                                  'moodleversion' => true,
                                  'moodlerelease' => true);
-        
+
         foreach ($sitevalues as $value => $newreg) {
             if (key_exists($value, $displayedvalues)) {
                 $valuecell = new html_table_cell();

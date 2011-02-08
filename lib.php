@@ -1864,4 +1864,3 @@ function hub_comment_permissions($params) {
     return array('view' => true,
         'post' => $post);
 }
-

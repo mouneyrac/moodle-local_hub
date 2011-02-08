@@ -115,10 +115,10 @@ if (!empty($freshmoodletoken)) {
         if ($freshmoodletokenconf) {
             //update the registration with new value
             $freshregistration['oldsite'] = (array)  $freshregistration['oldsite'];
-            $freshregistration['newsite']['id'] = $freshregistration['oldsite']['id'];          
+            $freshregistration['newsite']['id'] = $freshregistration['oldsite']['id'];
             $newtoken = $hub->register_site($freshregistration['newsite'],
                     $freshregistration['oldsite']['url']);
-            
+
             //delete the token, no unregistration possible anymore
             set_config($freshmoodletoken, null, 'local_hub_unregistration');
 
@@ -128,7 +128,7 @@ if (!empty($freshmoodletoken)) {
             //previously installed error. So it's not that bad.
             redirect(new moodle_url($freshregistration['newsite']['url']
                     ."/admin/registration/confirmregistration.php",
-                array('newtoken' => $newtoken, 'url' => $CFG->wwwroot, 
+                array('newtoken' => $newtoken, 'url' => $CFG->wwwroot,
                     'token' => $freshregistration['newsite']['secret'],
                     'hubname' => get_config('local_hub', 'name'))));
         } else {
@@ -171,7 +171,6 @@ if (!empty($sitewithsamesecret)) {
     $secretexists = false;
 }
 
-varlog($sitewithsamesecret);
 if ($secretexists and !$urlexists) { //the site has been moved or the site has been copied
     $action = optional_param('action', '', PARAM_ALPHA);
 
@@ -290,7 +289,7 @@ if (!empty($fromform)) { //the recaptcha has been valided (get_data return NULL 
 
     if (!$secretexists and !$urlexists) {
         $newtoken = $hub->register_site($siteinfo);
-    } else { 
+    } else {
         //the site is already registered
         //It happens when new fresh site has been installed and the email link
         //wasn't followed till the end of the registration replacement process.
