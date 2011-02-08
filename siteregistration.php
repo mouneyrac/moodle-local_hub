@@ -192,8 +192,6 @@ if ($secretexists and !$urlexists) { //the site has been moved or the site has b
             break;
         case 'copied':
 
-            echo "not working yet";
-
             //request the Moodle site to generate a new secret (=> new registration)
             redirect(new moodle_url($url."/admin/registration/renewregistration.php",
             array('url' => $CFG->wwwroot, 'token' => $token,
